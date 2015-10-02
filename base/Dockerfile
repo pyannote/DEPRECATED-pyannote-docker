@@ -140,7 +140,8 @@ RUN wget http://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2 \
 
 # ==== scientific Python ======================================================
 
- RUN pip install numpy scipy matplotlib jupyter
+RUN apt-get install -y liblapack-dev
+RUN pip install numpy scipy matplotlib jupyter
 
 # ==== OPENCV =================================================================
 
@@ -151,8 +152,7 @@ RUN apt-get install -y python-opencv
 RUN apt-get install -y libargtable2-0 libargtable2-dev \
                        libsndfile1 libsndfile1-dev \
                        libmpg123-0 libmpg123-dev \
-                       libfftw3-3 libfftw3-dev \
-                       liblapack-dev
+                       libfftw3-3 libfftw3-dev
 
 RUN wget https://github.com/Yaafe/Yaafe/archive/v0.65.1.tar.gz && \
     tar xzvf v0.65.1.tar.gz && \
