@@ -8,6 +8,11 @@ RUN apt-get install -y autoconf automake build-essential pkg-config cmake cmake-
 # ==== PYTHON =================================================================
 
 RUN apt-get install -y python python-dev python-pip python-virtualenv
+RUN pip install numpy scipy matplotlib jupyter
+
+# ==== BOOST ==================================================================
+
+RUN apt-get install -y libboost-dev libbost-python-dev
 
 # ==== FFMPEG =================================================================
 # https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
@@ -135,6 +140,7 @@ RUN wget http://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2 \
  && rm -rf /tmp/ffmpeg_sources
 
 # ==== OPENCV =================================================================
+
 RUN apt-get install -y python-opencv
 
 # ==== YAAFE ==================================================================
