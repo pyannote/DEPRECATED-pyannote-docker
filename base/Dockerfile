@@ -11,7 +11,7 @@ RUN apt-get install -y python python-dev python-pip python-virtualenv
 
 # ==== BOOST ==================================================================
 
-RUN apt-get install -y libboost-dev libbost-python-dev
+RUN apt-get install -y libboost-dev libboost-python-dev
 
 # ==== FFMPEG =================================================================
 # https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
