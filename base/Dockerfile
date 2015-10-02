@@ -144,7 +144,6 @@ RUN apt-get install -y libargtable2-0 libargtable2-dev \
                        libmpg123-0 libmpg123-dev \
                        libfftw3-3 libfftw3-dev \
                        liblapack-dev
-                       # libhdf5-dev libhdf5-8
 
 RUN wget https://github.com/Yaafe/Yaafe/archive/v0.65.1.tar.gz && \
     tar xzvf v0.65.1.tar.gz && \
@@ -155,7 +154,6 @@ RUN wget https://github.com/Yaafe/Yaafe/archive/v0.65.1.tar.gz && \
           -DCMAKE_INSTALL_PYTHON_PACKAGES=/usr/local/lib/python2.7/dist-packages \
           -DCMAKE_INSTALL_YAAFE_EXTENSIONS=/usr/local/lib/python2.7/dist-packages \
           -DWITH_FFTW3=ON \
-          # -DWITH_HDF5=ON \
           -DWITH_LAPACK=ON \
           -DWITH_MATLAB_MEX=OFF \
           -DWITH_MPG123=ON \
@@ -165,6 +163,8 @@ RUN wget https://github.com/Yaafe/Yaafe/archive/v0.65.1.tar.gz && \
     make install && \
     cd ../.. && \
     rm -rf Yaafe-0.65.1 v0.65.1.tar.gz
+
+# TODO: add HDF5 support (-DWITH_HDF5=ON)
 
 ENV LD_LIBRARY_PATH /usr/local/lib
 ENV YAAFE_PATH /usr/local/lib/python2.7/dist-packages
