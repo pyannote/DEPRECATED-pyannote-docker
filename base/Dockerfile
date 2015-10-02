@@ -8,7 +8,6 @@ RUN apt-get install -y autoconf automake build-essential pkg-config cmake cmake-
 # ==== PYTHON =================================================================
 
 RUN apt-get install -y python python-dev python-pip python-virtualenv
-RUN pip install numpy scipy matplotlib jupyter
 
 # ==== BOOST ==================================================================
 
@@ -138,6 +137,10 @@ RUN wget http://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2 \
  && make distclean \
  && hash -r \
  && rm -rf /tmp/ffmpeg_sources
+
+# ==== scientific Python ======================================================
+
+ RUN pip install numpy scipy matplotlib jupyter
 
 # ==== OPENCV =================================================================
 
