@@ -3,4 +3,19 @@
 ## `pyannote/base`
 
 This is the base image for all others `pyannote` images.  
-It includes [`ffmpeg`](http://ffmpeg.org), [`OpenCV`](http://opencv.org) and [`Yaafe`](http://github.com/yaafe).
+It includes
+
+- scientific libraries
+     * numpy
+     * scipy
+     * jupyter
+     * pandas
+- computer vision libraries
+     * OpenCV
+     * dlib
+     * scikit-image
+- machine learning libraries
+     * scikit-learn
+     * torch
+- audio processing libraries
+     * Yaafe
