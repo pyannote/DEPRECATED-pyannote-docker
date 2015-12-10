@@ -97,7 +97,6 @@ RUN pip install matplotlib \
                 scikit-image \
                 dlib \
                 numexpr \
-                pyannote.core \
                 pyannote.core[notebook]
 
 # -- YASM --
