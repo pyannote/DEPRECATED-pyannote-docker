@@ -93,7 +93,9 @@ RUN pip install matplotlib \
                 pandas \
                 scikit-learn \
                 scikit-image \
-                dlib
+                dlib \
+                numexpr \
+                pyannote.core
 
 # -- YASM --
 RUN mkdir /tmp/ffmpeg_sources \
