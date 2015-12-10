@@ -41,6 +41,7 @@ RUN apt-get update -qq \
       curl \
       gfortran \
       git \
+      graphviz \
       libargtable2-0 \
       libargtable2-dev \
       libass-dev \
@@ -48,6 +49,7 @@ RUN apt-get update -qq \
       libboost-all-dev \
       libboost-dev \
       libboost-python-dev \
+      libgraphviz-dev \
       libfftw3-3 \
       libfftw3-dev \
       libfreetype6-dev \
@@ -95,7 +97,8 @@ RUN pip install matplotlib \
                 scikit-image \
                 dlib \
                 numexpr \
-                pyannote.core
+                pyannote.core \
+                pyannote.core[notebook]
 
 # -- YASM --
 RUN mkdir /tmp/ffmpeg_sources \
