@@ -1,23 +1,28 @@
 # pyannote + docker = <3
 
+## `pyannote/base-scientific-python`
+
+ + numpy
+ + scipy
+ + pandas
+ + scikit-learn
+ + scikit-image
+ + numexpr
+ + jupyter
+ + matplotlib
+
+
+## `pyannote/base-audiovisual`
+
+ + `pyannote/base-scientific-python`
+ + ffmpeg
+ + OpenCV
+ + dlib
+ + Yaafe
+
 ## `pyannote/base`
 
-This is the base image for all others `pyannote` images.  
-It includes `pyannote.core` and the following tools:
-
-- scientific libraries
-     * numpy
-     * scipy
-     * jupyter
-     * pandas
-- computer vision libraries
-     * OpenCV
-     * dlib
-     * scikit-image
-- machine learning libraries
-     * scikit-learn
-     * torch
-- audio processing libraries
-     * Yaafe
+ + `pyannote/base-audiovisual`
+ + torch
 
 Default command is `jupyter notebook --port=8888 --no-browse --ip=0.0.0.0` ran from `/notebook` work directory.
