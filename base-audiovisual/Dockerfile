@@ -108,7 +108,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends \
  libsndfile1-dev \
  libhdf5-dev \
  libargtable2-0 \
- libargtable2-dev
+ libargtable2-dev \
+ libfftw3-3 \
+ libfftw3-dev
 
 RUN pip install pytest
 
