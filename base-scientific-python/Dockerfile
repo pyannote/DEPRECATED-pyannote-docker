@@ -48,7 +48,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends \
     python-software-properties \
     software-properties-common \
     sudo \
-    wget
+    wget \
+    unzip
 
 # -- math --
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends \
