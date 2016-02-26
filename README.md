@@ -11,14 +11,17 @@
  + jupyter
  + matplotlib
 
+ ## `pyannote/base-audio`
+
+  + `pyannote/base-scientific-python`
+  + ffmpeg
+  + Yaafe
 
 ## `pyannote/base-audiovisual`
 
- + `pyannote/base-scientific-python`
- + ffmpeg
+ + `pyannote/base-audio`
  + OpenCV
  + dlib
- + Yaafe
 
 ## `pyannote/base`
 
