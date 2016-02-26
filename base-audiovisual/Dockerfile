@@ -70,50 +70,50 @@ RUN mkdir /tmp/ffmpeg_sources \
  RUN DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends \
   libgtk2.0-dev
 
- # RUN mkdir /tmp/opencv_sources \
- #  && cd /tmp/opencv_sources \
- #  && wget https://github.com/Itseez/opencv/archive/3.1.0.tar.gz \
- #  && tar xzvf 3.1.0.tar.gz \
- #  && rm 3.1.0.tar.gz \
- #  && cd /tmp/opencv_sources \
- #  && wget https://github.com/Itseez/opencv_contrib/archive/3.1.0.tar.gz \
- #  && tar xzvf 3.1.0.tar.gz \
- #  && rm 3.1.0.tar.gz \
- #  && mkdir /tmp/opencv_sources/opencv-3.1.0/build \
- #  && cd /tmp/opencv_sources/opencv-3.1.0/build \
- #  && cmake -D CMAKE_BUILD_TYPE=RELEASE \
- #           -D CMAKE_INSTALL_PREFIX=/usr/local \
- #           -D INSTALL_C_EXAMPLES=OFF \
- #           -D INSTALL_PYTHON_EXAMPLES=ON \
- #           -D OPENCV_EXTRA_MODULES_PATH=/tmp/opencv_sources/opencv_contrib-3.1.0/modules \
- #           -D BUILD_EXAMPLES=ON .. \
- #   && make -j2 \
- #   && make install \
- #   && ldconfig \
- #   && rm -rf /tmp/opencv_sources
-
- # update OpenCV because of https://github.com/Itseez/opencv/pull/6009
  RUN mkdir /tmp/opencv_sources \
   && cd /tmp/opencv_sources \
-  && wget https://github.com/Itseez/opencv/archive/master.zip \
-  && unzip master.zip \
-  && rm master.zip \
+  && wget https://github.com/Itseez/opencv/archive/3.1.0.tar.gz \
+  && tar xzvf 3.1.0.tar.gz \
+  && rm 3.1.0.tar.gz \
   && cd /tmp/opencv_sources \
-  && wget https://github.com/Itseez/opencv_contrib/archive/master.zip \
-  && unzip master.zip \
-  && rm master.zip \
-  && mkdir /tmp/opencv_sources/opencv-master/build \
-  && cd /tmp/opencv_sources/opencv-master/build \
+  && wget https://github.com/Itseez/opencv_contrib/archive/3.1.0.tar.gz \
+  && tar xzvf 3.1.0.tar.gz \
+  && rm 3.1.0.tar.gz \
+  && mkdir /tmp/opencv_sources/opencv-3.1.0/build \
+  && cd /tmp/opencv_sources/opencv-3.1.0/build \
   && cmake -D CMAKE_BUILD_TYPE=RELEASE \
            -D CMAKE_INSTALL_PREFIX=/usr/local \
            -D INSTALL_C_EXAMPLES=OFF \
            -D INSTALL_PYTHON_EXAMPLES=ON \
-           -D OPENCV_EXTRA_MODULES_PATH=/tmp/opencv_sources/opencv_contrib-master/modules \
+           -D OPENCV_EXTRA_MODULES_PATH=/tmp/opencv_sources/opencv_contrib-3.1.0/modules \
            -D BUILD_EXAMPLES=ON .. \
    && make -j2 \
    && make install \
    && ldconfig \
    && rm -rf /tmp/opencv_sources
+
+ # # update OpenCV because of https://github.com/Itseez/opencv/pull/6009
+ # RUN mkdir /tmp/opencv_sources \
+ #  && cd /tmp/opencv_sources \
+ #  && wget https://github.com/Itseez/opencv/archive/master.zip \
+ #  && unzip master.zip \
+ #  && rm master.zip \
+ #  && cd /tmp/opencv_sources \
+ #  && wget https://github.com/Itseez/opencv_contrib/archive/master.zip \
+ #  && unzip master.zip \
+ #  && rm master.zip \
+ #  && mkdir /tmp/opencv_sources/opencv-master/build \
+ #  && cd /tmp/opencv_sources/opencv-master/build \
+ #  && cmake -D CMAKE_BUILD_TYPE=RELEASE \
+ #           -D CMAKE_INSTALL_PREFIX=/usr/local \
+ #           -D INSTALL_C_EXAMPLES=OFF \
+ #           -D INSTALL_PYTHON_EXAMPLES=ON \
+ #           -D OPENCV_EXTRA_MODULES_PATH=/tmp/opencv_sources/opencv_contrib-master/modules \
+ #           -D BUILD_EXAMPLES=ON .. \
+ #   && make -j2 \
+ #   && make install \
+ #   && ldconfig \
+ #   && rm -rf /tmp/opencv_sources
 
 # -- dlib --
 
@@ -158,18 +158,3 @@ RUN wget https://github.com/Yaafe/Yaafe/archive/v0.65.1.tar.gz && \
     rm -rf Yaafe-0.65.1 v0.65.1.tar.gz
 
 ENV YAAFE_PATH /usr/local/lib/python2.7/dist-packages
-
-# # -- Torch (deep learning) --
-#
-# RUN curl -s https://raw.githubusercontent.com/torch/ezinstall/master/install-deps | bash -e && \
-#     git clone https://github.com/torch/distro.git ~/torch --recursive && \
-#     cd ~/torch && \
-#     ./install.sh && \
-#     ~/torch/install/bin/luarocks install nn && \
-#     ~/torch/install/bin/luarocks install dpnn && \
-#     ~/torch/install/bin/luarocks install image && \
-#     ~/torch/install/bin/luarocks install optim && \
-#     ~/torch/install/bin/luarocks install csvigo
-#
-# ENV LD_LIBRARY_PATH /usr/local/lib:/opt/OpenBLAS/lib
-# ENV PATH ~/torch/install/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
